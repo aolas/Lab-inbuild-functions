@@ -16,7 +16,7 @@ class DataManipulation:
     def data_sanatization(self,input_list):
         input_list = input_list.split(",")
         new_list = []
-        for i in range(0, len(input_list)):
+        for i in range(len(input_list)):
             try:
                 new_list.append(int(input_list[i]))
             except ValueError as e:
@@ -27,7 +27,6 @@ class DataManipulation:
         index_min = min(range(len(input_list)), key=input_list.__getitem__)
         index_max = max(range(len(input_list)), key=input_list.__getitem__)
         input_item_count =len(input_list)
-        greater_than_10 = []
         print("Sum of digits entered:", sum(input_list))
         print("MIN pozition:", index_min, "value:", input_list[index_min])
         print("MAX pozition:", index_max, "value:", input_list[index_max])
@@ -42,9 +41,11 @@ class DataManipulation:
         print("Sorted ascending order:", input_list)
         input_list.sort(reverse=True)
         print("Sorted descending order:", input_list)
-        for ind in range(0, len(input_list)):
-            if input_list[ind] > 10:
-                greater_than_10.append(input_list[ind])
+        greater_than_10 = [
+            input_list[ind]
+            for ind in range(len(input_list))
+            if input_list[ind] > 10
+        ]
         print("Items greater than 10", greater_than_10)
 # Press the green button in the gutter to run the script.
 class Data_Manipulation_Part2:
